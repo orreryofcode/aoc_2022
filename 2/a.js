@@ -9,8 +9,6 @@ fs.readFile("input.txt", (err, data) => {
     .split("-")
     .filter((data) => data.length > 0);
 
-  //A = Rock, B = Paper, C = Scissors
-  //X = Rock, Y = Paper, Z = Scissors
   const scoreRubric = {
     A: 1,
     B: 2,
@@ -25,7 +23,6 @@ fs.readFile("input.txt", (err, data) => {
   let outcomeScore = 0;
 
   for (let i = 0; i < preparedData.length; i += 2) {
-    // Calculates the score based on player's choice (rock, paper or scissors)
     let myInput = preparedData[i + 1];
     let oppInput = preparedData[i];
 
@@ -33,13 +30,10 @@ fs.readFile("input.txt", (err, data) => {
       myScore += scoreRubric[myInput];
     }
 
-    // Calculates the score based on outcome (lose, draw, win)
-
     if (scoreRubric[oppInput] === scoreRubric[myInput]) {
       outcomeScore += 3;
     }
 
-    // If they pick rock...
     if (oppInput === "A") {
       if (myInput === "Y") {
         outcomeScore += 6;
@@ -48,7 +42,6 @@ fs.readFile("input.txt", (err, data) => {
       }
     }
 
-    // If they pick paper...
     if (oppInput === "B") {
       if (myInput === "Z") {
         outcomeScore += 6;
@@ -57,7 +50,6 @@ fs.readFile("input.txt", (err, data) => {
       }
     }
 
-    // If they pick scissors...
     if (oppInput === "C") {
       if (myInput === "X") {
         outcomeScore += 6;

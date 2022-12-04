@@ -9,8 +9,6 @@ fs.readFile("input.txt", (err, data) => {
     .split("-")
     .filter((data) => data.length > 0);
 
-  //A = Rock, B = Paper, C = Scissors
-  //X = Lose, Y = Draw, Z = Win
   const scoreRubric = {
     A: 1,
     B: 2,
@@ -23,7 +21,6 @@ fs.readFile("input.txt", (err, data) => {
   var myScore = 0;
   var outcomeScore = 0;
 
-  //   Function to keep track of my score based on input (ie: Rock = 1pt, Paper = 2pt, Scissor = 3pt);
   function calculateMyScore(input) {
     if (scoreRubric.hasOwnProperty(input)) {
       myScore += scoreRubric[input];
@@ -31,7 +28,6 @@ fs.readFile("input.txt", (err, data) => {
   }
 
   for (let i = 0; i < preparedData.length; i += 2) {
-    // Calculates the score based on player's choice (rock, paper or scissors)
     let oppInput = preparedData[i];
     let outcome = preparedData[i + 1];
     let myInput;
@@ -71,5 +67,3 @@ fs.readFile("input.txt", (err, data) => {
   }
   console.log(myScore + outcomeScore);
 });
-
-// If statement hell but it worked =]
